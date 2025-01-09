@@ -55,10 +55,13 @@ button {
     cursor: pointer;
 
     &.back {
-        width: 60px;
-        height: 60px;
+        width: 55px;
         background-color: transparent;
         border: none;
+        position: absolute;
+        top: 64px;
+        right: 128px;
+        border-radius: 100%;
     }
 }
 

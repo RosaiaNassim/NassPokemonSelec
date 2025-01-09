@@ -86,7 +86,7 @@ pokemons.forEach(pokemon => {
                 choice1Name.innerText = pokemon.children[1].textContent
 
                 p1 = pokeClass.find(pokemon => {  
-                    if(pokemon.name === player1) {
+                    if(pokemon.name === player1.charAt(0).toUpperCase() + player1.slice(1)) {
                         return pokemon
                     }
                 })
@@ -96,12 +96,9 @@ pokemons.forEach(pokemon => {
                 choice2.style.visibility = 'visible'
                 player2 = Object.keys(listPokemons)[random].charAt(0).toUpperCase() + Object.keys(listPokemons)[random].slice(1)
                 choice2Name.innerText = Object.keys(listPokemons)[random].charAt(0).toUpperCase() + Object.keys(listPokemons)[random].slice(1)
-                
-                console.log(player2);
-                
-
+                            
                 p2 = pokeClass.find(pokemon => {  
-                    if(pokemon.name === player2) {
+                    if(pokemon.name === player2.charAt(0).toUpperCase() + player2.slice(1)) {
                         return pokemon
                     }
                 })
@@ -122,7 +119,7 @@ pokemons.forEach(pokemon => {
                 choice1Name.innerText = pokemon.children[1].textContent
                 
                 p1 = pokeClass.find(pokemon => {  
-                    if(pokemon.name === player1) {
+                    if(pokemon.name === player1.charAt(0).toUpperCase() + player1.slice(1)) {
                         return pokemon
                     }
                 })
@@ -138,7 +135,7 @@ pokemons.forEach(pokemon => {
                 choice2Name.innerText = pokemon.children[1].textContent
 
                 p2 = pokeClass.find(pokemon => {  
-                    if(pokemon.name === player2) {
+                    if(pokemon.name === player2.charAt(0).toUpperCase() + player2.slice(1)) {
                         return pokemon
                     }
                 })
@@ -185,12 +182,25 @@ random.addEventListener('click', () => {
             choice1.style.visibility = 'visible'
             player1 = Object.keys(listPokemons)[random]
             choice1Name.innerText = Object.keys(listPokemons)[random].charAt(0).toUpperCase() + Object.keys(listPokemons)[random].slice(1)
+
+            p1 = pokeClass.find(pokemon => {  
+                if(pokemon.name === player1.charAt(0).toUpperCase() + player1.slice(1)) {
+                    return pokemon
+                }
+            })
             
             const random2 = Math.floor(Math.random() * 25)
             choice2.style.backgroundImage = `url('img/${Object.keys(listPokemons)[random2]}.png')`
             choice2.style.visibility = 'visible'
             player2 = Object.keys(listPokemons)[random2]
             choice2Name.innerText = Object.keys(listPokemons)[random2].charAt(0).toUpperCase() + Object.keys(listPokemons)[random2].slice(1)
+            
+            p2 = pokeClass.find(pokemon => {  
+                if(pokemon.name === player2.charAt(0).toUpperCase() + player2.slice(1)) {
+                    return pokemon
+                }
+            })
+            launchCombat()
         }
     } 
     if(players === 'twoPlayers') {
@@ -200,12 +210,27 @@ random.addEventListener('click', () => {
             choice1.style.visibility = 'visible'
             player1 = Object.keys(listPokemons)[random]
             choice1Name.innerText = Object.keys(listPokemons)[random].charAt(0).toUpperCase() + Object.keys(listPokemons)[random].slice(1)
+            
+            p1 = pokeClass.find(pokemon => {  
+                if(pokemon.name === player1.charAt(0).toUpperCase() + player1.slice(1)) {
+                    return pokemon
+                }
+            })
+
         } else if(player2 === undefined) {
             const random = Math.floor(Math.random() * 25)
             choice2.style.backgroundImage = `url('img/${Object.keys(listPokemons)[random]}.png')`
             choice2.style.visibility = 'visible'
             player2 = Object.keys(listPokemons)[random]
             choice2Name.innerText = Object.keys(listPokemons)[random].charAt(0).toUpperCase() + Object.keys(listPokemons)[random].slice(1)
+
+            p2 = pokeClass.find(pokemon => {  
+                if(pokemon.name === player2.charAt(0).toUpperCase() + player2.slice(1)) {
+                    return pokemon
+                }
+            })
+            console.log(p2)
+            launchCombat()
         }
     }
 })
@@ -252,7 +277,7 @@ let electhor = new Pokemon("Electhor", "Électrik et Vol", 110, 120);
 let entei = new Pokemon("Entei", "Feu", 130, 150);
 let giratina = new Pokemon("Giratina", "Spectre et Dragon", 130, 130);
 let groudon = new Pokemon("Groudon", "Sol", 180, 120);
-let hooh = new Pokemon("Ho-oh", "Feu et Vol", 130, 110);
+let hooh = new Pokemon("Ho-Oh", "Feu et Vol", 130, 110);
 let kyogre = new Pokemon("Kyogre", "Eau", 130, 130);
 let kyurem = new Pokemon("Kyurem", "Dragon et Glace", 130, 120);
 let latias = new Pokemon("Latias", "Dragon et Psy", 110, 110);
