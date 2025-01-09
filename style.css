@@ -8,7 +8,7 @@ body{
     width: 100vw;
     height: 100vh;
     background: black;
-    background-image: url('img/fondpokemon.jpg');
+    background-image: url('img/fondpokentournament.jpeg');
     background-repeat: no-repeat;
     background-size: 100vw;
 }
@@ -39,7 +39,7 @@ body{
     align-items: center;
     justify-content: center;
 }
-.joueur1{
+button {
     background-color: rgb(54, 54, 54);
     color: white;
     width: 15rem;
@@ -53,21 +53,13 @@ body{
     font-style: normal;
     font-size: 2rem;
     cursor: pointer;
-}
-.joueur2{
-    background-color: rgb(54, 54, 54);
-    color: white;
-    width: 15rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid gray;
-    font-family: "Barlow Condensed", serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 2rem;
-    cursor: pointer;
+
+    &.back {
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        border: none;
+    }
 }
 
 .joueur1:hover{

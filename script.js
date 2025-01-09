@@ -312,7 +312,10 @@ launchCombat = () => {
         setTimeout(() => {
             vs.children [0].src = 'img/finducombat.png'
             choice1.style.visibility = 'hidden'
-            choice2.style.visibility = 'hidden' 
+            choice2.style = '' 
+            choice2.style.visibility = 'visible'
+            choice2.innerHTML = ''
+            choice2.style.backgroundImage = 'none'
             health1.style.visibility = 'hidden'
             health2.style.visibility = 'hidden'
             pokemons.style.justifyContent = 'center'
@@ -329,6 +332,17 @@ launchCombat = () => {
             vs.children [0].src = `img/${p1.hp > 0 ? p1.name.toLowerCase() : p2.name.toLowerCase()}.png`
             pokemons.innerHTML = `Le Winner est ${p1.hp > 0 ? p1.name : p2.name}`
             vs.children [0].style.width = '60rem'
+            choice2.innerHTML = `
+                <button class="back">
+                    <img width="60" height="60" src="img/back.png" alt="back">
+                </button>
+            `
+            choice2.style.display = 'flex'
+            choice2.style.justifyContent = 'end' 
+            choice2.children[0].style.height = '5rem'
+            choice2.children[0].addEventListener('click', () => {
+                window.location.reload();
+            })
         }, 6000)
     }
 }
