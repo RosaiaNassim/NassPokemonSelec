@@ -281,14 +281,16 @@ const health2 = document.getElementById('health2')
 launchCombat = () => {
     if(p1 !== undefined && p2 !== undefined) {
         document.querySelector('.pokemons').style.display = 'none'
+        health1.innerText = `${p1.hp} hp`
+        health2.innerText = `${p2.hp} hp`
         health1.style.visibility = 'visible'
         health2.style.visibility = 'visible'
         
         while(p1.hp > 0 && p2.hp > 0){
             console.log(`C'est au tour de ${p1.name} !`)
             console.log(`${p1.name} attaque ${p2.name} et lui inflige ${p1.atk} points de dégats`)
+            p2.hp -= p1.atk
             setTimeout(() => {
-                p2.hp -= p1.atk
                 deg2.innerText = `-${p1.atk} hp`
                 health2.innerText = `${p2.hp} hp`
             }, 1000)
@@ -296,8 +298,8 @@ launchCombat = () => {
             if(p2.hp <= 0) break
             console.log(`C'est au tour de ${p2.name} !`)
             console.log(`${p2.name} attaque ${p1.name} et lui inflige ${p2.atk} points de dégats`)
+            p1.hp -= p2.atk
             setTimeout(() => {
-                p1.hp -= p2.atk
                 deg1.innerText = `-${p2.atk} hp`
                 health1.innerText = `${p1.hp} hp`
             }, 1500)
@@ -305,5 +307,28 @@ launchCombat = () => {
             console.log(`${p1.name} a ${p1.hp} points de vie restants`)
         }
         console.log(`Le vainqueur est ${p1.hp > 0 ? p1.name : p2.name}`)
+        const vs = document.querySelector('.vs')
+        const pokemons = document.querySelector('.pokemons')
+        setTimeout(() => {
+            vs.children [0].src = 'img/finducombat.png'
+            choice1.style.visibility = 'hidden'
+            choice2.style.visibility = 'hidden' 
+            health1.style.visibility = 'hidden'
+            health2.style.visibility = 'hidden'
+            pokemons.style.justifyContent = 'center'
+            pokemons.style.display = 'flex'
+            pokemons.innerHTML = ``
+            pokemons.style.wordSpacing = '0px'
+            pokemons.style.fontWeight = 600;
+            pokemons.style.color = 'white';
+            pokemons.style.fontSize = '8rem';
+            pokemons.style.textStroke = '2px black';
+            pokemons.style.webkitTextStroke = '2px black';
+        }, 4000)
+        setTimeout(() => {
+            vs.children [0].src = `img/${p1.hp > 0 ? p1.name.toLowerCase() : p2.name.toLowerCase()}.png`
+            pokemons.innerHTML = `Le Winner est ${p1.hp > 0 ? p1.name : p2.name}`
+            vs.children [0].style.width = '60rem'
+        }, 6000)
     }
 }

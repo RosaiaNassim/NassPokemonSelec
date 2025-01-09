@@ -8,7 +8,7 @@ body{
     width: 100vw;
     height: 100vh;
     background: black;
-    background-image: url(img/e99cfe8cf0e305d5ec62c0737c6ed000.jpeg);
+    background-image: url('img/fondpokemon.jpg');
     background-repeat: no-repeat;
     background-size: 100vw;
 }
@@ -22,15 +22,14 @@ body{
 }
 .logo{
     width: 100vh;
-    height: 40vh;    
-    border-radius: 40%;
+    height: 50vh;    
     display: flex;
     align-items: end;
     justify-content: center;
 }
 .logo img{
-    width: 20rem;
-    height: 20rem;
+    width: 30rem;
+    height: 30rem;
     border-radius: 40%;
 }
 .joueur{
@@ -134,6 +133,8 @@ body{
     bottom: 32px;
     left: 0;
     right: 0;
+    font-family: "Barlow Condensed", serif;
+
 
     img {
         background-color: #171933;
